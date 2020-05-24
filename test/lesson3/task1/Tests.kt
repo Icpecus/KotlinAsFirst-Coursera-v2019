@@ -85,7 +85,7 @@ class Tests {
         assertEquals(1134903170, fib(45))
         assertEquals(1836311903, fib(46))
         // Just to calculate it
-        fib(50)
+        //println("${fib(46)}")
     }
 
     @Test
@@ -212,6 +212,7 @@ class Tests {
         assertFalse(isPalindrome(3653))
         assertTrue(isPalindrome(15751))
         assertTrue(isPalindrome(24688642))
+        assertTrue(isPalindrome(246878642))
     }
 
     @Test
@@ -223,6 +224,7 @@ class Tests {
         assertFalse(hasDifferentDigits(0))
         assertFalse(hasDifferentDigits(777))
         assertTrue(hasDifferentDigits(31122))
+        assertTrue(hasDifferentDigits(987654932))
     }
 
     @Test
@@ -245,5 +247,6 @@ class Tests {
         assertEquals(2, fibSequenceDigit(9))
         assertEquals(5, fibSequenceDigit(14))
         assertEquals(2, fibSequenceDigit(20))
+        assertEquals(7, fibSequenceDigit(25))
     }
 }

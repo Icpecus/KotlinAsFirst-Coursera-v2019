@@ -265,19 +265,7 @@ class Tests {
     @Test
     @Tag("Hard")
     fun propagateHandshakes() {
-        assertEquals(
-            mapOf(
-                "Marat" to setOf("Mikhail", "Sveta"),
-                "Sveta" to setOf("Mikhail"),
-                "Mikhail" to setOf()
-            ),
-            propagateHandshakes(
-                mapOf(
-                    "Marat" to setOf("Sveta"),
-                    "Sveta" to setOf("Mikhail")
-                )
-            )
-        )
+
         assertEquals(
             mapOf(
                 "Marat" to setOf("Mikhail", "Sveta"),
@@ -289,6 +277,18 @@ class Tests {
                     "Marat" to setOf("Mikhail", "Sveta"),
                     "Sveta" to setOf("Marat"),
                     "Mikhail" to setOf("Sveta")
+                )
+            )
+        )
+        assertEquals(
+            mapOf(
+                "Marat" to setOf("Sveta", "Mikhail"),
+                "Sveta" to setOf("Mikhail")
+            ),
+            propagateHandshakes(
+                mapOf(
+                    "Marat" to setOf("Sveta"),
+                    "Sveta" to setOf("Mikhail")
                 )
             )
         )
@@ -309,6 +309,10 @@ class Tests {
             Pair(-1, -1),
             findSumOfTwo(listOf(1, 2, 3), 6)
         )
+        assertEquals(
+            Pair(3, 8),
+            findSumOfTwo(listOf(9, 2, 5, 4, 6, 3, 1, 8, 7), 13)
+        )
     }
 
     @Test
@@ -317,8 +321,8 @@ class Tests {
         assertEquals(
             setOf("Кубок"),
             bagPacking(
-                mapOf("Кубок" to (500 to 2000), "Слиток" to (1000 to 5000)),
-                850
+                mapOf("Кубок" to (50 to 200), "Слиток" to (100 to 500)),
+                85
             )
         )
         assertEquals(
@@ -326,6 +330,57 @@ class Tests {
             bagPacking(
                 mapOf("Кубок" to (500 to 2000), "Слиток" to (1000 to 5000)),
                 450
+            )
+        )
+        assertEquals(
+            setOf(
+                "bike_stand",
+                "garbage_can",
+                "standing_lamp",
+                "chest_of_drawers",
+                "plant_3",
+                "plant_2",
+                "diner_table_with_chairs",
+                "bookshelf",
+                "armchair",
+                "table",
+                "desk",
+                "bed",
+                "couch_s"
+            ),
+            bagPacking(
+                mapOf(
+                    "couch_s" to (300 to 75),
+                    "couch_b" to (500 to 80),
+                    "bed" to (400 to 100),
+                    "closet" to (200 to 50),
+                    "bed_s" to (200 to 40),
+                    "desk" to (200 to 70),
+                    "table" to (300 to 80),
+                    "tv_table" to (200 to 30),
+                    "armchair" to (100 to 30),
+                    "bookshelf" to (200 to 60),
+                    "cabinet" to (150 to 20),
+                    "game_table" to (150 to 30),
+                    "hammock" to (250 to 45),
+                    "diner_table_with_chairs" to (250 to 70),
+                    "stools" to (150 to 30),
+                    "mirror" to (100 to 20),
+                    "instrument" to (300 to 70),
+                    "plant_1" to (25 to 10),
+                    "plant_2" to (30 to 20),
+                    "plant_3" to (45 to 25),
+                    "sideboard" to (175 to 30),
+                    "chest_of_drawers" to (25 to 40),
+                    "guest_bed" to (250 to 40),
+                    "standing_lamp" to (20 to 30),
+                    "garbage_can" to (30 to 35),
+                    "bar_with_stools" to (200 to 40),
+                    "bike_stand" to (100 to 80),
+                    "chest" to (150 to 25),
+                    "heater" to (100 to 25)
+                ),
+                2000
             )
         )
     }
